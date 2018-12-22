@@ -10,7 +10,7 @@
 </ion-header>
 
 <ion-content>
-  <form [formGroup]="user_credentials" (ngSubmit)="logForm()">
+  <form [formGroup]="settings" (ngSubmit)="saveSettings()">
     <ion-item>
       <ion-label>Username</ion-label>
       <ion-input type="text" formControlName="username"></ion-input>
@@ -19,6 +19,6 @@
       <ion-label>Password</ion-label>
       <ion-input type="password" formControlName="password"></ion-input>
     </ion-item>
-    <button ion-button type="submit" [disabled]="!user_credentials.valid">Save</button>
+    <button ion-button type="submit" [disabled]="!settings.valid">Save</button>
   </form>
 </ion-content>

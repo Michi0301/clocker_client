@@ -1,22 +1,39 @@
 import { Component } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { Settings } from '../../models/settings';
+
 
 @Component({
   selector: 'app-settings',
   templateUrl: 'settings.page.html',
   styleUrls: ['settings.page.scss'],
 })
+
 export class SettingsPage {
-  private user_credentials: FormGroup;
+  private settings: FormGroup;
 
   constructor(private formBuilder: FormBuilder) {
-    this.user_credentials = this.formBuilder.group({
+    this.settings = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
     });
+
+    if (Settings.present()) this.loadSettings();
   }
 
-  logForm() {
-    console.log(this.user_credentials.value)
+  saveSettings() {
+    let settings = new Settings(
+      this.settings.value.username, 
+      this.settings.value.password
+    );
+
+    settings.save();
+  }
+
+  private loadSettings() {
+    this.settings.setValue({
+      username: Settings.get('username'),
+      password: Settings.get('password')
+    });
   }
 }
