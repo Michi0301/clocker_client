@@ -10,14 +10,15 @@
 </ion-header>
 
 <ion-content>
-    <ion-card class="Settings-card">
-      <ion-img src="/assets/shapes.svg"></ion-img>
-      <ion-card-header>
-        <ion-card-subtitle>Settings</ion-card-subtitle>
-        <ion-card-title>Clocker Settings</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p>Settings to be here.</p>
-      </ion-card-content>
-    </ion-card>
+  <form [formGroup]="user_credentials" (ngSubmit)="logForm()">
+    <ion-item>
+      <ion-label>Username</ion-label>
+      <ion-input type="text" formControlName="username"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Password</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+    <button ion-button type="submit" [disabled]="!user_credentials.valid">Save</button>
+  </form>
 </ion-content>
