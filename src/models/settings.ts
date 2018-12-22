@@ -1,12 +1,14 @@
 export class Settings {
   username: String;
   password: String;
+  server: String;
 
   static readonly localStorageKey = 'settings';
 
-  constructor(username: String, password: String) {
+  constructor(username: String, password: String, server: String) {
     this.username = username;
     this.password = password;
+    this.server   = server;
   }
 
   save() {
@@ -16,7 +18,8 @@ export class Settings {
   toJson() {
     return JSON.stringify({
       username: this.username,
-      password: this.password    
+      password: this.password,
+      server:   this.server    
     });
   }
 

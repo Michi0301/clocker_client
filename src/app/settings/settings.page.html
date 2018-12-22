@@ -11,14 +11,33 @@
 
 <ion-content>
   <form [formGroup]="settings" (ngSubmit)="saveSettings()">
-    <ion-item>
-      <ion-label>Username</ion-label>
-      <ion-input type="text" formControlName="username"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label>Password</ion-label>
-      <ion-input type="password" formControlName="password"></ion-input>
-    </ion-item>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>User Credentials</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-label>Username</ion-label>
+          <ion-input type="text" formControlName="username"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Password</ion-label>
+          <ion-input type="password" formControlName="password"></ion-input>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>    
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>App Settings</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-label>Server</ion-label>
+          <ion-input type="text" formControlName="server"></ion-input>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+    
     <button ion-button type="submit" [disabled]="!settings.valid">Save</button>
   </form>
 </ion-content>

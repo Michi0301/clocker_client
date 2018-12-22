@@ -15,7 +15,8 @@ export class SettingsPage {
   constructor(private formBuilder: FormBuilder) {
     this.settings = this.formBuilder.group({
       username: ['', Validators.required],
-      password: ['', Validators.required]
+      password: ['', Validators.required],
+      server: ['', Validators.required]
     });
 
     if (Settings.present()) this.loadSettings();
@@ -24,7 +25,8 @@ export class SettingsPage {
   saveSettings() {
     let settings = new Settings(
       this.settings.value.username, 
-      this.settings.value.password
+      this.settings.value.password,
+      this.settings.value.server
     );
 
     settings.save();
@@ -33,7 +35,8 @@ export class SettingsPage {
   private loadSettings() {
     this.settings.setValue({
       username: Settings.get('username'),
-      password: Settings.get('password')
+      password: Settings.get('password'),
+      server: Settings.get('server')
     });
   }
 }
