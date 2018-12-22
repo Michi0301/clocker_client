@@ -12,32 +12,35 @@
 <ion-content>
   <form [formGroup]="settings" (ngSubmit)="saveSettings()">
     <ion-card>
-      <ion-card-header>
-        <ion-card-title>User Credentials</ion-card-title>
-      </ion-card-header>
       <ion-card-content>
         <ion-item>
           <ion-label>Username</ion-label>
           <ion-input type="text" formControlName="username"></ion-input>
         </ion-item>
+        
         <ion-item>
           <ion-label>Password</ion-label>
           <ion-input type="password" formControlName="password"></ion-input>
         </ion-item>
-      </ion-card-content>
-    </ion-card>    
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>App Settings</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
+        
         <ion-item>
           <ion-label>Server</ion-label>
           <ion-input type="text" formControlName="server"></ion-input>
         </ion-item>
+        
+        <button ion-button type="submit" color="secondary" clear [disabled]="!settings.valid">Save</button>
       </ion-card-content>
     </ion-card>
-    
-    <button ion-button type="submit" [disabled]="!settings.valid">Save</button>
   </form>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Copyright Notes</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/"
+      title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0"
+      target="_blank">CC 3.0 BY</a>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
