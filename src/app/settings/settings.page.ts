@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
-import { Settings } from '../../models/settings';
+import { Settings } from '../models/settings';
 
 
 @Component({
