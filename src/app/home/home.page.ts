@@ -12,7 +12,7 @@ export class HomePage implements OnInit {
   clockState: ClockState;
 
   constructor(private clocker_client: ClockerClient) {
-    this.clockState = new ClockState('... loading ...');
+    this.clockState = new ClockState('loading');
   };
 
   ngOnInit() {
