@@ -20,4 +20,31 @@
         <span *ngIf="clockState.current_state != 'loading'">{{clockState.current_state}}</span>
       </ion-card-content>
     </ion-card>
+    <ion-card>
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <div>
+                <ion-button color="success">Clock in</ion-button>
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <div>
+                <ion-button color="primary">Pause</ion-button>
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <div>
+                <ion-button color="danger">Clock out</ion-button>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
 </ion-content>
