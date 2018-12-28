@@ -6,7 +6,7 @@ import { ClockState } from './clock-state'
 @Injectable()
 export class ClockerClient {
   static readonly credentials = {
-    username: Settings.get('username'), password: Settings.get('password')
+    username: Settings.get('username'), password: Settings.get('password'), perform_sync: true
   };
 
   constructor(private http: HttpClient) { 

@@ -17,37 +17,40 @@ export class HomePage implements OnInit {
     this.fetchCurrent();
   }
 
-  fetchCurrent() {
+  private setLoadingState() {
     this.clockState = new ClockState('loading');
+  }
+
+  fetchCurrent() {
+    this.setLoadingState();
 
     this.clocker_client.getCurrentState().subscribe((clockState) => {
       this.clockState = clockState;
-
-      console.log(clockState);
     });
   }
 
   clockIn() {
-    this.clocker_client.clockIn().subscribe((result) => {
-      
-      this.fetchCurrent();
-      console.log(result);
+    this.setLoadingState();
+
+    this.clocker_client.clockIn().subscribe((clockState) => {
+      this.clockState = clockState;
+    
     });
   }
 
   clockOut() {
-    this.clocker_client.clockOut().subscribe((result) => {
+    this.setLoadingState();
 
-      this.fetchCurrent();
-      console.log(result);
+    this.clocker_client.clockOut().subscribe((clockState) => {
+      this.clockState = clockState;
     });
   }
 
   clockPause() {
-    this.clocker_client.clockPause().subscribe((result) => {
+    this.setLoadingState();
 
-      this.fetchCurrent();
-      console.log(result);
+    this.clocker_client.clockPause().subscribe((clockState) => {
+      this.clockState = clockState;
     });
   }
 }
