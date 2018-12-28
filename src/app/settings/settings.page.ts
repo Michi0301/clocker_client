@@ -10,7 +10,7 @@ import { Settings } from '../models/settings';
 })
 
 export class SettingsPage {
-  private settings: FormGroup;
+  public settings: FormGroup;
 
   constructor(private formBuilder: FormBuilder) {
     this.settings = this.formBuilder.group({

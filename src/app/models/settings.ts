@@ -23,7 +23,7 @@ export class Settings {
     });
   }
 
-  static get(attribute: String) {
+  static get(attribute: any) {
     return JSON.parse(localStorage.getItem(Settings.localStorageKey))[attribute];
   }
 
