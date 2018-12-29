@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ClockerClient } from '../models/clocker-client'
 import { ClockState } from '../models/clock-state';
+import { Settings } from '../models/settings';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-home',
@@ -11,10 +13,15 @@ import { ClockState } from '../models/clock-state';
 export class HomePage implements OnInit {
   clockState: ClockState;
 
-  constructor(private clocker_client: ClockerClient) {};
+  constructor(private clocker_client: ClockerClient, private router: Router) {};
 
   ngOnInit() {
-    this.fetchCurrent();
+    // Redirect to settings page if no settings are present
+    if (!Settings.present()) {
+      this.router.navigate(['/settings']);
+    } else {
+      this.fetchCurrent();
+    }
   }
 
   private setLoadingState() {
