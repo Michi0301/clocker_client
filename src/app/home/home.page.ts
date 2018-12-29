@@ -50,7 +50,6 @@ export class HomePage implements OnInit {
 
     this.clocker_client.clockIn().subscribe((clockState) => {
       this.clockState = clockState;
-    
     });
   }
 
