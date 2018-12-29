@@ -10,41 +10,44 @@
 </ion-header>
 
 <ion-content>
-    <ion-card class="welcome-card">
-      <ion-img src="/assets/alarm-clock.svg"></ion-img>
-      <ion-card-header>
-        <ion-card-title>Current Status</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <ion-spinner *ngIf="clockState.current_state == 'loading'"></ion-spinner>
-        <span *ngIf="clockState.current_state != 'loading'">{{clockState.current_state}}</span>
-      </ion-card-content>
-    </ion-card>
-    <ion-card>
-      <ion-card-content>
-        <ion-grid>
-          <ion-row>
-            <ion-col>
-              <div>
-                <ion-button color="success" (click)="clockIn()">Clock in</ion-button>
-              </div>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col>
-              <div>
-                <ion-button color="primary" (click)="clockPause()">Pause</ion-button>
-              </div>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col>
-              <div>
-                <ion-button color="danger" (click)="clockOut()">Clock out</ion-button>
-              </div>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-card-content>
-    </ion-card>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-card class="welcome-card">
+    <ion-img src="/assets/alarm-clock.svg"></ion-img>
+    <ion-card-header>
+      <ion-card-title>Current Status</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-spinner *ngIf="clockState.current_state == 'loading'"></ion-spinner>
+      <span *ngIf="clockState.current_state != 'loading'">{{clockState.current_state}}</span>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <div>
+              <ion-button color="success" (click)="clockIn()">Clock in</ion-button>
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <div>
+              <ion-button color="primary" (click)="clockPause()">Pause</ion-button>
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <div>
+              <ion-button color="danger" (click)="clockOut()">Clock out</ion-button>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

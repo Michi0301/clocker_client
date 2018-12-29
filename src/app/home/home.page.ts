@@ -28,6 +28,15 @@ export class HomePage implements OnInit {
     this.clockState = new ClockState('loading');
   }
 
+  doRefresh(event) {
+    this.setLoadingState();
+
+    this.clocker_client.getCurrentState().subscribe((clockState) => {
+      this.clockState = clockState;
+      event.target.complete();
+    });
+  }
+
   fetchCurrent() {
     this.setLoadingState();
 
