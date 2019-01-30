@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Settings } from '../models/settings';
 import { Router } from '@angular/router'
+import { environment } from '../../environments/environment';
 
 
 @Component({
@@ -17,7 +18,7 @@ export class SettingsPage {
     this.settings = this.formBuilder.group({
       username: [Settings.get('username'), Validators.required],
       password: [Settings.get('password'), Validators.required],
-      server: [Settings.get('server'), Validators.required],
+      server: [Settings.get('server') || environment.apiBackend, Validators.required],
       autoFetch: [Settings.get('autoFetch'), Validators.required],
       useAsyncApi: [Settings.get('useAsyncApi'), Validators.required]
     });

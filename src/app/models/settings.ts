@@ -1,5 +1,3 @@
-import { Server } from "tls";
-
 export class Settings {
   username: string;
   password: string;
@@ -18,7 +16,7 @@ export class Settings {
   constructor(options: { username: string, password: string, server: string, autoFetch: boolean, useAsyncApi: boolean}) {
     this.username = options.username;
     this.password = options.password;
-    this.server =  options.server;
+    this.server = options.server;
     this.autoFetch = options.autoFetch;
     this.useAsyncApi = options.useAsyncApi;
   }
