@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Settings } from '../models/settings';
+import { Router } from '@angular/router'
 
 
 @Component({
@@ -12,31 +13,26 @@ import { Settings } from '../models/settings';
 export class SettingsPage {
   public settings: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private router: Router) {
     this.settings = this.formBuilder.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required],
-      server: ['', Validators.required]
+      username: [Settings.get('username'), Validators.required],
+      password: [Settings.get('password'), Validators.required],
+      server: [Settings.get('server'), Validators.required],
+      autoFetch: [Settings.get('autoFetch'), Validators.required],
+      useAsyncApi: [Settings.get('useAsyncApi'), Validators.required]
     });
-
-    if (Settings.present()) this.loadSettings();
   }
 
   saveSettings() {
-    let settings = new Settings(
-      this.settings.value.username, 
-      this.settings.value.password,
-      this.settings.value.server
-    );
+    let settings = new Settings({
+      username: this.settings.value.username,
+      password: this.settings.value.password,
+      server: this.settings.value.server,
+      autoFetch: this.settings.value.autoFetch,
+      useAsyncApi: this.settings.value.useAsyncApi
+    });
 
     settings.save();
-  }
-
-  private loadSettings() {
-    this.settings.setValue({
-      username: Settings.get('username'),
-      password: Settings.get('password'),
-      server: Settings.get('server')
-    });
+    this.router.navigate(['/']);
   }
 }
