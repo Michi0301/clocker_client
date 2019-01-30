@@ -19,8 +19,8 @@
       <ion-card-title>Current Status</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <ion-spinner *ngIf="clockState.current_state == 'loading'"></ion-spinner>
-      <span *ngIf="clockState.current_state != 'loading'">{{clockState.current_state}}</span>
+      <ion-spinner *ngIf="clockState.current_state == 'Awaiting response...'"></ion-spinner>
+      <span *ngIf="clockState.current_state != 'Awaiting response...'">{{clockState.current_state || 'Instuction sent - Pull to fetch state'}}</span>
     </ion-card-content>
   </ion-card>
   <ion-card>

@@ -5,14 +5,14 @@ import { ClockState } from './clock-state'
 
 @Injectable()
 export class ClockerClient {
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient) {
   }
 
   params() {
     return {
       username: Settings.get('username'),
       password: Settings.get('password'),
-      perform_sync: true
+      perform_sync: !Settings.get('useAsyncApi')
     };
   }
 
