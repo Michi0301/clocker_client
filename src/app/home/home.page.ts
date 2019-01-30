@@ -13,19 +13,21 @@ import { Router } from '@angular/router'
 export class HomePage implements OnInit {
   clockState: ClockState;
 
-  constructor(private clocker_client: ClockerClient, private router: Router) {};
+  constructor(private clocker_client: ClockerClient, private router: Router) {
+    this.clockState = new ClockState('Pull to refresh');
+  };
 
   ngOnInit() {
     // Redirect to settings page if no settings are present
     if (!Settings.present()) {
       this.router.navigate(['/settings']);
     } else {
-      this.fetchCurrent();
+      if (Settings.get('autoFetch')) this.fetchCurrent();
     }
   }
 
   private setLoadingState() {
-    this.clockState = new ClockState('loading');
+    this.clockState = new ClockState('Awaiting response...');
   }
 
   doRefresh(event) {
