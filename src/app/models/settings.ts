@@ -7,12 +7,6 @@ export class Settings {
 
   static readonly localStorageKey = 'settings';
 
-  // constructor(username: String, password: String, server: String) {
-  //   this.username = username;
-  //   this.password = password;
-  //   this.server   = server;
-  // }
-
   constructor(options: { username: string, password: string, server: string, autoFetch: boolean, useAsyncApi: boolean}) {
     this.username = options.username;
     this.password = options.password;
@@ -36,6 +30,8 @@ export class Settings {
   }
 
   static get(attribute: any) {
+    if (!Settings.present()) return;
+
     return JSON.parse(localStorage.getItem(Settings.localStorageKey))[attribute];
   }
 
