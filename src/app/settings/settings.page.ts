@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Settings } from '../models/settings';
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
 
 
