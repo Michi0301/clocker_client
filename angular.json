@@ -25,7 +25,9 @@
                 "input": "src/assets",
                 "output": "assets"
               },
-              "src/manifest.json"
+              "src/manifest.json",
+              "src/combined-sw.js",
+              "src/firebase-messaging-sw.js"
             ],
             "styles": [
               {

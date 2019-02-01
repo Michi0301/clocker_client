@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Settings } from '../models/settings';
+import { PushToken } from '../models/pushToken';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
+import { AngularFireMessaging } from '@angular/fire/messaging';
 
 
 @Component({
@@ -11,10 +13,10 @@ import { environment } from '../../environments/environment';
   styleUrls: ['settings.page.scss'],
 })
 
-export class SettingsPage {
+export class SettingsPage implements OnInit {
   public settings: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private router: Router, private afMessaging: AngularFireMessaging) {
     this.settings = this.formBuilder.group({
       username: [Settings.get('username'), Validators.required],
       password: [Settings.get('password'), Validators.required],
@@ -35,5 +37,20 @@ export class SettingsPage {
 
     settings.save();
     this.router.navigate(['/']);
+  }
+
+  requestPushNotificationsPermission() {
+    this.afMessaging.requestToken.subscribe(
+      (token) => {
+        PushToken.save(token);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
+
+  ngOnInit() {
+    if (!PushToken.present()) this.requestPushNotificationsPermission();
   }
 }

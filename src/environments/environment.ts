@@ -4,7 +4,10 @@
 
 export const environment = {
   production: false,
-  apiBackend: 'https://nameless-basin-10822.herokuapp.com/api/sage'
+  apiBackend: 'https://nameless-basin-10822.herokuapp.com/api/sage',
+  firebase: {
+    messagingSenderId: '282924589880'
+  }
 };
 
 /*

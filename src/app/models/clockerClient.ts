@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Settings } from './settings';
-import { ClockState } from './clock-state'
+import { PushToken } from './pushToken';
+import { ClockState } from './clockState'
 
 @Injectable()
 export class ClockerClient {
@@ -12,7 +13,8 @@ export class ClockerClient {
     return {
       username: Settings.get('username'),
       password: Settings.get('password'),
-      perform_sync: !Settings.get('useAsyncApi')
+      perform_sync: !Settings.get('useAsyncApi'),
+      push_token: PushToken.get()
     };
   }
 

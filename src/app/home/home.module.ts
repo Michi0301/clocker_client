@@ -5,7 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
-import { ClockerClient } from '../models/clocker-client'
+import { ClockerClient } from '../models/clockerClient'
 
 @NgModule({
   imports: [

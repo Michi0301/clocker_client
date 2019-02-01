@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ClockerClient } from '../models/clocker-client'
-import { ClockState } from '../models/clock-state';
+import { ClockerClient } from '../models/clockerClient'
+import { ClockState } from '../models/clockState';
 import { Settings } from '../models/settings';
 import { Router } from '@angular/router'
+import { AngularFireMessaging } from '@angular/fire/messaging';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +14,7 @@ import { Router } from '@angular/router'
 export class HomePage implements OnInit {
   clockState: ClockState;
 
-  constructor(private clocker_client: ClockerClient, private router: Router) {
+  constructor(private clocker_client: ClockerClient, private router: Router, private afMessaging: AngularFireMessaging) {
     this.clockState = new ClockState('Pull to refresh');
   };
 
@@ -24,6 +25,11 @@ export class HomePage implements OnInit {
     } else {
       if (Settings.get('autoFetch')) this.fetchCurrent();
     }
+
+    this.afMessaging.messages.subscribe((message: any) => {
+        this.clockState = new ClockState(message.data.current_status);
+       }
+    );
   }
 
   private setLoadingState() {

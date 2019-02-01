@@ -20,7 +20,7 @@
     </ion-card-header>
     <ion-card-content>
       <ion-spinner *ngIf="clockState.current_state == 'Awaiting response...'"></ion-spinner>
-      <span *ngIf="clockState.current_state != 'Awaiting response...'">{{clockState.current_state || 'Instuction sent - Pull to fetch state'}}</span>
+      <span *ngIf="clockState.current_state != 'Awaiting response...'">{{clockState.current_state || 'Instuction sent - Waiting for response...'}}</span>
     </ion-card-content>
   </ion-card>
   <ion-card>
