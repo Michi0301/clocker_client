@@ -37,10 +37,21 @@
           <ion-label>Use asynchronous api</ion-label>
           <ion-toggle color="primary" formControlName="useAsyncApi"></ion-toggle>
         </ion-item>
-        <ion-button expand="full" size="large" type="submit" color="secondary" clear [disabled]="!settings.valid">Save</ion-button>
+        <ion-button expand="full" size="large" type="submit" color="secondary" clear>Save</ion-button>
       </ion-card-content>
     </ion-card>
   </form>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Push Notifications</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-button color="primary" expand="full" size="large" (click)="requestPushNotificationsPermission()">
+        Ask for Permission
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
 
   <ion-card>
     <ion-card-header>
@@ -52,4 +63,3 @@
       target="_blank">CC 3.0 BY</a>
     </ion-card-content>
   </ion-card>
-</ion-content>
