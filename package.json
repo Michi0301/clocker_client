@@ -1,6 +1,9 @@
 {
   "name": "clocker_client",
   "version": "0.0.1",
+  "engines": {
+    "node": "12.14.1"
+  },
   "author": "Ionic Framework",
   "homepage": "http://ionicframework.com/",
   "scripts": {
