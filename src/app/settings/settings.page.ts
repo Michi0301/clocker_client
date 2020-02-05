@@ -40,14 +40,15 @@ export class SettingsPage implements OnInit {
   }
 
   requestPushNotificationsPermission() {
-    this.afMessaging.requestToken.subscribe(
-      (token) => {
-        PushToken.save(token);
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
+    this.afMessaging.requestToken
+      .subscribe(
+        (token) => {
+          PushToken.save(token);
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
   }
 
   ngOnInit() {
