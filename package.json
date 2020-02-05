@@ -2,7 +2,8 @@
   "name": "clocker_client",
   "version": "0.0.1",
   "engines": {
-    "node": "12.14.1"
+    "node": "10.14.2",
+    "npm": "6.4.1"
   },
   "author": "Ionic Framework",
   "homepage": "http://ionicframework.com/",
@@ -34,14 +35,15 @@
     "core-js": "^2.5.4",
     "express": "^4.16.4",
     "firebase": "^5.8.1",
-    "npm": "^6.5.0",
+    "node-pre-gyp": "^0.14.0",
+    "npm": "^6.13.7",
     "path": "^0.12.7",
     "rxjs": "~6.3.3",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
     "@angular-devkit/architect": "~0.11.4",
-    "@angular-devkit/build-angular": "~0.11.4",
+    "@angular-devkit/build-angular": "^0.10.0",
     "@angular-devkit/core": "~7.1.4",
     "@angular-devkit/schematics": "~7.1.4",
     "@angular/cli": "^7.2.1",
