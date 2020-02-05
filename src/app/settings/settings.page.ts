@@ -51,7 +51,14 @@ export class SettingsPage implements OnInit {
       );
   }
 
+  setVapidKey() {
+    this.afMessaging.messaging.subscribe((_messaging) => {
+      _messaging.usePublicVapidKey('BNuqePVbeKJA4JUkzMPq0X1qgc11noBm6CYeTwetQ3BMcv3d2GH-XzB-96X1_0S5BkwS8RtjIC93LI88MtiCcLA');
+    })
+  }
+
   ngOnInit() {
+    this.setVapidKey();
     if (!PushToken.present()) this.requestPushNotificationsPermission();
   }
 }
