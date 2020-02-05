@@ -1,7 +1,7 @@
 // See https://ionicthemes.com/tutorials/about/the-complete-guide-to-progressive-web-apps-with-ionic4
 
-importScripts('https://www.gstatic.com/firebasejs/7.8.0/firebase-app.js');
-importScripts('https://www.gstatic.com/firebasejs/7.8.0/firebase-messaging.js');
+importScripts('https://www.gstatic.com/firebasejs/7.6.0/firebase-app.js');
+importScripts('https://www.gstatic.com/firebasejs/7.6.0/firebase-messaging.js');
 
 const FIREBASE_PUBLIC_VAPID_KEY = 'BNuqePVbeKJA4JUkzMPq0X1qgc11noBm6CYeTwetQ3BMcv3d2GH-XzB-96X1_0S5BkwS8RtjIC93LI88MtiCcLA';
 
